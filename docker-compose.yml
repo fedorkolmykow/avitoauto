@@ -8,7 +8,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=postgresql://postgres:avitopass@composepostgres:5432/avitoauto
+      - DATABASE_URL=postgresql://postgres:avitopass@autopostgres:5432/avitoauto
       - HTTP_PORT=:9000
       - LOG_LEVEL=TRACE
       - TIME_TO_SHUTDOWN=10
@@ -17,7 +17,7 @@ services:
     stop_signal: SIGINT
     stop_grace_period: 15s
   postgres:
-    container_name: composepostgres
+    container_name: autopostgres
     build: postgres/
     volumes:
       - ./data:/var/lib/postgresql/data
