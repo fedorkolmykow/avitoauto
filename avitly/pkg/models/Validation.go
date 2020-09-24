@@ -26,8 +26,6 @@ var mapKeyRunes = map[rune]interface{}{'0':nil,'1':nil,'2':nil,
 	'v':nil,'w':nil,'x':nil,'y':nil,'z':nil,
 }
 
-//var KeyRunes = reflect.ValueOf(mapKeyRunes).MapKeys()
-
 func (s *SaveURLReq) Validate() error{
 	_, err := url.Parse(s.OriginalURL)
 	if err != nil{

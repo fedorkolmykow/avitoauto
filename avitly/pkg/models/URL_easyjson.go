@@ -132,7 +132,12 @@ func easyjson20e82cd9EncodeGithubComFedorkolmykowAvitoautoPkgModels1(out *jwrite
 	_ = first
 	{
 		const prefix string = ",\"key\":"
-		out.RawString(prefix[1:])
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
 		out.String(string(in.Key))
 	}
 	out.RawByte('}')
@@ -203,7 +208,7 @@ func easyjson20e82cd9EncodeGithubComFedorkolmykowAvitoautoPkgModels2(out *jwrite
 		out.RawString(prefix[1:])
 		out.String(string(in.OriginalURL))
 	}
-	{
+	if in.CustomKey != "" {
 		const prefix string = ",\"custom_key\":"
 		out.RawString(prefix)
 		out.String(string(in.CustomKey))

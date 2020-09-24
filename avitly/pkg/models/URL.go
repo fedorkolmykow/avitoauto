@@ -1,11 +1,11 @@
 package models
 
-
 type SaveURLReq struct{
 	OriginalURL 	string				`json:"url"`
-	CustomKey 		string				`json:"custom_key"`
+	CustomKey 		string				`json:"custom_key,omitempty"`
 }
 type SaveURLResp struct {
+	KeyID			int					`json:"-"`
 	Key				string				`json:"key"`
 }
 
@@ -17,7 +17,7 @@ type RedirectResp struct {
 }
 
 type URL struct {
-	URLId			int					`json:"-" db:"url_id"`
+	Id				int					`json:"-" db:"url_id"`
 	URL          	string              `json:"url" db:"url"`
 	Key				string				`json:"key" db:"key"`
 }
