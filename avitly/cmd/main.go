@@ -30,7 +30,7 @@ func main() {
 	if err != nil {
 		log.Warn(err)
 	}
-	file, err := os.OpenFile("logs/jobber.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	file, err := os.OpenFile("logs/auto.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err == nil {
 		log.SetOutput(file)
 	} else {
